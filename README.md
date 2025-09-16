@@ -1,4 +1,4 @@
-# SmsBillingPanel
+# Sms Panel manager
 
 A lightweight and practical system built with Laravel 12 for collecting and displaying SMS reports from multiple websites managed by a single company.  
 The panel shows overall statistics of sent messages, total costs, message details (content, receiver number, date), allows balance top-up (for company information purposes), and sending SMS directly from the dashboard.
