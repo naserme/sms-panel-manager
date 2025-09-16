@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Login</title>
+    <link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #6c6c6cff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 95%;
+            max-width: 400px;
+            margin: auto;
+            text-align: center;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* --- دکمه و منو --- */
+        .menu-wrapper {
+            position: relative;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .menu-btn {
+            background: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .menu-content {
+            display: none;
+            position: absolute;
+            top: 110%;
+            right: 0;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            width: 250px;
+        }
+
+        @media (min-width: 768px) {
+            .menu-wrapper:hover .menu-content {
+                display: block;
+            }
+        }
+
+        /* --- modal موبایل --- */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 200;
+        }
+
+        .my-link {
+            color: inherit;
+            /* رنگ متن والد رو می‌گیره */
+            text-decoration: none;
+            /* خط زیر رو حذف می‌کنه */
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <link rel="stylesheet" href="<?php echo e(asset('jalalidatepicker/jalalidatepicker.min.css')); ?>">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="<?php echo e(asset('jalalidatepicker/jalalidatepicker.min.js')); ?>"></script>
+    <script>
+        jalaliDatepicker.startWatch({
+            // minDate: "1403/01/01",
+            // maxDate: "1404/12/29",
+            Date: true,
+            hideAfterChange: true,
+            dayRendering: function (dayOptions, input) {
+                // می‌تونی اینجا روز خاصی رو هایلایت کنی
+                return dayOptions;
+            }
+        });
+    </script>
+
+    <!-- موبایل modal -->
+    <div id="mobileModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeMobileMenu()" style="cursor:pointer;float:left;font-weight:bold">X</span>
+            <h3>پیام / اعتبار</h3>
+            <input type="text" placeholder="افزایش اعتبار">
+            <input type="text" placeholder="ارسال پیام">
+            <button>ثبت</button>
+        </div>
+    </div>
+
+    <?php echo $__env->yieldContent('content'); ?>
+
+    <script>
+        function openMobileMenu() {
+            if (window.innerWidth < 768) {
+                document.getElementById('mobileModal').style.display = 'flex';
+            }
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobileModal').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html><?php /**PATH /opt/meseger/resources/views/layouts/layout.blade.php ENDPATH**/ ?>
