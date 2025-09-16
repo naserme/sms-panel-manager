@@ -16,14 +16,14 @@ The panel shows overall statistics of sent messages, total costs, message detail
    ```bash
    git clone <repo-url>
    cd <repo-folder>
-Install dependencies:
+## Install dependencies:
 
 bash
 Copy code
 composer install
 npm install
 npm run build
-Configure environment file:
+## Configure environment file:
 
 bash
 Copy code
@@ -31,7 +31,7 @@ cp .env.example .env
 php artisan key:generate
 Set database, SMS service, and app configuration in .env.
 
-Run migrations and seeders (if available):
+## Run migrations and seeders (if available):
 
 bash
 Copy code
@@ -52,24 +52,26 @@ resources/views — admin panel and user dashboard views (Blade)
 
 routes/web.php and routes/api.php — routes for panel and API
 
-SMS Service Integration
+### SMS Service Integration
 The project is designed to support multiple SMS providers.
 Just create a new service in Services/Sms and register it in the service container.
 
-Security Notes
+# Security Notes
 Keep all sensitive data in .env and never commit it to a public repo.
 
 For production use, configure queues, caching, and SSL properly.
 
-Contribution
-Pull requests are welcome. Before submitting, please:
+# Contribution
+## Pull requests are welcome. Before submitting, please:
 
 Add unit tests or provide clear explanations of changes
 
 Follow the coding standards of the project
 
-License
+# License
 This project is released under the MIT License.
 
-Contact
-For integration or customization, open an issue or reach out via email.
+# Contact
+For integration or customization, open an issue or reach out via Telegram.
+
+My Telegram ID: @naser_me
